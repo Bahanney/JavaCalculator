@@ -78,7 +78,7 @@ public class WebCalculator {
                 long b = Long.parseLong(req.queryParams("b"));
                 Calculator calc = new Calculator(a, b);
 
-                return """
+                return String.format("""
                     <!DOCTYPE html>
                     <html lang='en'>
                     <head>
@@ -111,16 +111,18 @@ public class WebCalculator {
                     <body>
                         <div class='result'>
                             <h2>Calculation Results</h2>
-                            <p><strong>First Number:</strong> """ + a + """</p>
-                            <p><strong>Second Number:</strong> """ + b + """</p>
-                            <p><strong>Sum:</strong> """ + calc.addFunc() + """</p>
-                            <p><strong>Difference:</strong> """ + calc.subFunc() + """</p>
-                            <p><strong>Product:</strong> """ + calc.mulFunc() + """</p>
+                            <p><strong>First Number:</strong> %d</p>
+                            <p><strong>Second Number:</strong> %d</p>
+                            <p><strong>Sum:</strong> %d</p>
+                            <p><strong>Difference:</strong> %d</p>
+                            <p><strong>Product:</strong> %d</p>
                             <a href='/'>← Go Back</a>
                         </div>
                     </body>
                     </html>
-                    """;
+                    """,
+                    a, b, calc.addFunc(), calc.subFunc(), calc.mulFunc()
+                );
 
             } catch (Exception e) {
                 res.status(400);
