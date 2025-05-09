@@ -99,19 +99,19 @@ public class WebCalculator {
                     <body>
                         <div class='result'>
                             <h2>Calculation Results</h2>
-                            <p><strong>First Number:</strong> """ + a + "</p>";
-                            <p><strong>Second Number:</strong> """ + b + "</p>";
-                            <p><strong>Sum:</strong> """ + calc.addFucn(a, b) + "</p>";
-                            <p><strong>Difference:</strong> """ + calc.subFucn(a, b) + "</p>";
-                            <p><strong>Product:</strong> """ + calc.mulFucn(a, b) + "</p>";
-                            <a href='/'>&#8592; Go Back</a>
+                            <p><strong>First Number:</strong> """ + a + """</p>
+                            <p><strong>Second Number:</strong> """ + b + """</p>
+                            <p><strong>Sum:</strong> """ + calc.addFucn() + """</p>
+                            <p><strong>Difference:</strong> """ + calc.subFucn() + """</p>
+                            <p><strong>Product:</strong> """ + calc.mulFucn() + """</p>
+                            <a href='/'>← Go Back</a>
                         </div>
                     </body>
                     </html>
                 """;
             } catch (Exception e) {
                 res.status(400);
-                return "<h1>Error: Invalid input</h1><a href='/'>&#8592; Try again</a>";
+                return "<h1>Error: Invalid input</h1><a href='/'>← Try again</a>";
             }
         });
     }
