@@ -16,8 +16,8 @@ FROM eclipse-temurin:17-jre
 # Set working directory
 WORKDIR /app
 
-# Copy the JAR file from the builder stage
-COPY --from=builder /app/target/*.jar app.jar
+# Copy the specific shaded JAR file from the builder stage
+COPY --from=builder /app/target/RaviCalculator-1.4.jar app.jar
 
 # Expose port 8080
 EXPOSE 8080
