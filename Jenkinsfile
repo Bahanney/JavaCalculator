@@ -15,7 +15,7 @@ pipeline {
 
         stage('Build Application') {
             steps {
-                sh 'mvn -Dmaven.compiler.source=1.8 -Dmaven.compiler.target=1.8 clean package -DskipTests'
+                sh 'mvn -Dmaven.compiler.source=13 -Dmaven.compiler.target=13 clean package -DskipTests'
             }
         }
 
