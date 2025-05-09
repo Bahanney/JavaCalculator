@@ -74,7 +74,7 @@ public class WebCalculator {
                     </div>
                 </body>
                 </html>
-            """;
+                """;
         });
 
         get("/calculate", (req, res) -> {
@@ -108,7 +108,7 @@ public class WebCalculator {
                         </div>
                     </body>
                     </html>
-                """;
+                    """;
             } catch (Exception e) {
                 res.status(400);
                 return "<h1>Error: Invalid input</h1><a href='/'>← Try again</a>";
