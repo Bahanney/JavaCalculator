@@ -21,7 +21,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'mvn test'
+                sh 'mvn test -e'
             }
         }
 
@@ -43,8 +43,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    docker stop calculator-app || true
-                    docker rm calculator-app || true
+                    docker stop calculator-app || echo "Calculator app was not running"
+                    docker rm calculator-app || echo "Calculator app was not removed"
                     docker run -d -p 8080:8080 --name calculator-app "$DOCKER_IMAGE"
                 '''
             }

@@ -1,5 +1,5 @@
-# Use a Maven image to build the application
-FROM maven:3.8-openjdk-8 as builder
+# Use a Maven image with OpenJDK 17 to build the application
+FROM maven:3.8-openjdk-17 as builder
 
 # Set working directory
 WORKDIR /app
@@ -10,8 +10,8 @@ COPY . .
 # Build the application
 RUN mvn clean package -DskipTests
 
-# Use a Java runtime as the base image for the final image
-FROM openjdk:8-jre-slim
+# Use OpenJDK 17 runtime as the base image for the final image
+FROM openjdk:17-jre-slim
 
 # Set working directory
 WORKDIR /app
